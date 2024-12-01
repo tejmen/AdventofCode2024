@@ -1,4 +1,3 @@
-print("\n\n\n\n\n")
 data = """68878   98732
 24519   87903
 73275   70114
@@ -1006,11 +1005,13 @@ for x in data:
     y = x.split()
     data_list1.append(int(y[0]))
     data_list2.append(int(y[1]))
-data_list1.sort()
-data_list2.sort()
+counter = 0
 total = 0
-for num in range(len(data_list1)):
-    diff = abs(int(data_list1[num])-int(data_list2[num]))
-    print(diff)
-    total = diff + total
-    print(total)
+
+for x in data_list1:
+    for y in data_list2:
+        if x == y:
+            counter += 1
+    total += counter*x
+    counter = 0
+print("total:",total)
